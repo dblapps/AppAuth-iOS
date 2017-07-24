@@ -162,7 +162,7 @@ typedef void (^OIDRegistrationCompletion)(OIDRegistrationResponse *_Nullable reg
     @remarks Has no effect if called more than once, or after a @c cancel message was received.
     @return YES if the passed URL matches the expected redirect URL and was consumed, NO otherwise.
  */
-- (BOOL)resumeAuthorizationFlowWithURL:(NSURL *)URL;
+- (BOOL)resumeAuthorizationFlowWithURL:(NSURL *)URL actualURL:(NSURL*)actualURL;
 
 /*! @brief @c OIDAuthorizationUICoordinator or clients should call this method when the
          authorization flow failed with a non-OAuth error.

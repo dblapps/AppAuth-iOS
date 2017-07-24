@@ -41,6 +41,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface OIDAuthorizationUICoordinatorIOS : NSObject<OIDAuthorizationUICoordinator>
 
+@property (readwrite,nonatomic) BOOL autoDismiss;
+
 /*! @brief Allows library consumers to change the @c OIDSafariViewControllerFactory used to create
         new instances of @c SFSafariViewController.
     @remarks Useful for customizing tint colors and presentation styles.

@@ -66,6 +66,7 @@ static id<OIDSafariViewControllerFactory> __nullable gSafariViewControllerFactor
         (UIViewController *)presentingViewController {
   self = [super init];
   if (self) {
+    _autoDismiss = YES;
     _presentingViewController = presentingViewController;
   }
   return self;
@@ -105,7 +106,7 @@ static id<OIDSafariViewControllerFactory> __nullable gSafariViewControllerFactor
   }
   SFSafariViewController *safariVC = _safariVC;
   [self cleanUp];
-  if (safariVC) {
+  if (safariVC && self.autoDismiss) {
     [safariVC dismissViewControllerAnimated:YES completion:completion];
   } else {
     if (completion) completion();

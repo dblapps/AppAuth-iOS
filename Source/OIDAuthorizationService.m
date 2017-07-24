@@ -103,9 +103,9 @@ NS_ASSUME_NONNULL_BEGIN
       OIDIsEqualIncludingNil(standardizedURL.path, standardizedRedirectURL.path);
 }
 
-- (BOOL)resumeAuthorizationFlowWithURL:(NSURL *)URL {
+- (BOOL)resumeAuthorizationFlowWithURL:(NSURL *)URL actualURL:(NSURL*)actualURL {
   // rejects URLs that don't match redirect (these may be completely unrelated to the authorization)
-  if (![self shouldHandleURL:URL]) {
+  if (![self shouldHandleURL:actualURL]) {
     return NO;
   }
   // checks for an invalid state
