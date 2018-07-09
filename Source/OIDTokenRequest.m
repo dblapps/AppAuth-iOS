@@ -274,12 +274,14 @@ static NSString *const kAdditionalParametersKey = @"additionalParameters";
   NSMutableDictionary *httpHeaders = [[NSMutableDictionary alloc] init];
 
   if (_clientSecret) {
-    NSString *credentials = [NSString stringWithFormat:@"%@:%@", _clientID, _clientSecret];
-    NSData *plainData = [credentials dataUsingEncoding:NSUTF8StringEncoding];
-    NSString *basicAuth = [plainData base64EncodedStringWithOptions:kNilOptions];
+//    NSString *credentials = [NSString stringWithFormat:@"%@:%@", _clientID, _clientSecret];
+//    NSData *plainData = [credentials dataUsingEncoding:NSUTF8StringEncoding];
+//    NSString *basicAuth = [plainData base64EncodedStringWithOptions:kNilOptions];
 
-    NSString *authValue = [NSString stringWithFormat:@"Basic %@", basicAuth];
-    [httpHeaders setObject:authValue forKey:@"Authorization"];
+//    NSString *authValue = [NSString stringWithFormat:@"Basic %@", basicAuth];
+//    [httpHeaders setObject:authValue forKey:@"Authorization"];
+    [bodyParameters addParameter:kClientIDKey value:_clientID];
+    [bodyParameters addParameter:kClientSecretKey value:_clientSecret];
   } else  {
     [bodyParameters addParameter:kClientIDKey value:_clientID];
   }
